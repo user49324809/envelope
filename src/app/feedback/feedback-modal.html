@@ -1,0 +1,27 @@
+<div class="modal-overlay" (click)="closeModal()">
+  <div class="modal-card" (click)="$event.stopPropagation()">
+    <h2>📨 Обратная связь</h2>
+    <div *ngIf="!submitted; else thankYou">
+      <label>
+        Имя:
+        <input [(ngModel)]="name" type="text" />
+      </label>
+      <label>
+        Email:
+        <input [(ngModel)]="email" type="email" />
+      </label>
+      <label>
+         Сообщение:
+        <textarea [(ngModel)]="message" rows="4"></textarea>
+      </label>
+      <div class="modal-actions">
+        <button (click)="submit()">📤 Отправить</button>
+        <button class="cancel" (click)="closeModal()">✖ Закрыть</button>
+      </div>
+    </div>
+    <ng-template #thankYou>
+      <p>Спасибо за ваше сообщение! 📬</p>
+      <button class="cancel" (click)="closeModal()">✖ Закрыть</button>
+    </ng-template>
+  </div>
+</div>

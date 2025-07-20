@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: envelope-angular-app
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: ""
+    staticPublishPath: dist/envelope-app
+    envVars:
+      - key: NODE_VERSION
+        value: 18

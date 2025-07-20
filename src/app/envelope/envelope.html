@@ -1,0 +1,39 @@
+<div class="envelope" [class.open]="isOpen">
+  <button class="seal" [hidden]="isOpen" (click)="toggleEnvelope($event)">
+    📍 Открыть
+  </button>
+  <div class="flap flap-top"></div>
+  <div class="flap flap-bottom"></div>
+  <div class="flap flap-left"></div>
+  <div class="flap flap-right"></div>
+  <div class="paper">
+    <div class="gallery" [hidden]="!isOpen">
+      <div class="item" *ngFor="let product of products">
+        <div class="stamp-card">
+          <img [src]="product.image" [alt]="product.name" />
+          <div class="info">
+            <h3>{{ product.name }}</h3>
+            <p>Цена за 1: {{ product.price }} ₽</p>
+            <label class="qty-label">
+              Кол-во:
+              <input
+                type="number"
+                [(ngModel)]="product.quantity"
+                min="1"
+              />
+            </label>
+            <p><strong>Итого: {{ getTotal(product) }} ₽</strong></p>
+            <button
+              class="add-btn"
+              (click)="addToCart(product)"
+            >
+              В корзину
+            </button>
+          </div>
+        </div>
+      </div>
+      <button class="stamp-btn" (click)="showFeedback = true">📩 Связаться</button>
+      <app-feedback-modal *ngIf="showFeedback" (close)="showFeedback = false"></app-feedback-modal>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,202 @@
+.envelope {
+  position: relative;
+  width: 800px;
+  height: 800px;
+  margin: 60px auto;
+  perspective: 1000px;
+  background: transparent;
+}
+
+/* Печать / наклейка */
+.seal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #c1440e;
+  color: #fffdf7;
+  border: 4px solid #8b1e00;
+  border-radius: 50%;
+  padding: 20px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.seal:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Части конверта */
+.flap {
+  position: absolute;
+  background-color: #f2e3c6;
+  border: 1px solid #c1a873;
+  transition: transform 1s ease;
+  z-index: 5;
+}
+
+.flap-top {
+  width: 100%;
+  height: 50%;
+  top: 0;
+  left: 0;
+  transform-origin: top center;
+}
+
+.flap-bottom {
+  width: 100%;
+  height: 50%;
+  bottom: 0;
+  left: 0;
+  transform-origin: bottom center;
+}
+
+.flap-left {
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform-origin: left center;
+}
+
+.flap-right {
+  width: 50%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  transform-origin: right center;
+}
+
+/* Анимация раскрытия */
+.envelope.open .flap-top {
+  transform: rotateX(-150deg);
+}
+
+.envelope.open .flap-bottom {
+  transform: rotateX(150deg);
+}
+
+.envelope.open .flap-left {
+  transform: rotateY(-150deg);
+}
+
+.envelope.open .flap-right {
+  transform: rotateY(150deg);
+}
+
+/* Внутренний лист бумаги */
+.paper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+/* Галерея */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.item {
+  width: 150px;
+  text-align: center;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.qty-label {
+  font-size: 13px;
+  color: #4a3a23;
+  margin: 8px 0 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.qty-label input[type="number"] {
+  width: 50px;
+  padding: 4px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.stamp-card {
+  background: #fffdf7;
+  border: 2px dashed #bba97d;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  width: 180px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+.stamp-card:hover {
+  transform: scale(1.03);
+}
+
+.stamp-card img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.info {
+  text-align: center;
+}
+
+.info h3 {
+  font-size: 16px;
+  margin: 8px 0 4px;
+  font-family: 'Georgia', serif;
+  color: #3e2f1c;
+}
+
+.price {
+  font-size: 14px;
+  color: #6a4b2c;
+  margin: 4px 0;
+}
+
+.add-btn {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background-color: #d27c2c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-family: 'Courier New', monospace;
+}
+.add-btn:hover {
+  background-color: #aa5f1c;
+}
