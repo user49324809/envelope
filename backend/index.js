@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -93,6 +93,6 @@ app.post('/order', (req, res) => {
   res.status(200).json({ message: 'Заказ получен' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Сервер запущен на http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`Сервер запущен на http://localhost:${port}`);
 });
