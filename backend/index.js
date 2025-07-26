@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../client/dist/envelope-app')));
+app.use(express.static(path.join(__dirname, '../dist/envelope-app')));
 
 const products = [
   { id: 1, name: 'Cup', image: 'assets/envelope.jpg', price: 1200, quantity: 1 },
