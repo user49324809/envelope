@@ -1,8 +1,7 @@
 services:
   - type: web
-    name: envelope-fullstack
+    name: envelope-app
     env: node
-    plan: free
-    buildCommand: npm install
-    startCommand: npm start
-    rootDir: ./
+    rootDir: backend
+    buildCommand: cd .. && npm install && npm run build
+    startCommand: node index.js
