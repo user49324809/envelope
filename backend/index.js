@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, '../client/dist/envelope-app')));
 const products = [
   { id: 1, name: 'Cup', image: 'assets/envelope.jpg', price: 1200, quantity: 1 },
   { id: 2, name: 'Cup', image: 'assets/product2.jpg', price: 950, quantity: 1 },
-  { id: 3, name: 'Товар 3', image: 'assets/product3.jpg', price: 740, quantity: 1 },
+  { id: 3, name: 'toy', image: 'assets/product3.jpg', price: 740, quantity: 1 },
   { id: 4, name: 'Товар 4', image: 'assets/product4.jpg', price: 1500, quantity: 1 },
   { id: 5, name: 'Товар 5', image: 'assets/product4.jpg', price: 500, quantity: 1 },
   { id: 6, name: 'Товар 6', image: 'assets/product4.jpg', price: 185, quantity: 1 }
