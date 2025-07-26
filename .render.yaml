@@ -3,6 +3,8 @@ services:
     name: envelope-fullstack
     env: node
     plan: free
-    buildCommand: npm install
-    startCommand: npm start
     rootDir: ./
+    buildCommand: |
+      npm install
+      npm run build -- --configuration production
+    startCommand: npm start
