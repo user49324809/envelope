@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../dist/envelope-app')));
+app.use(express.static(path.join(__dirname, '../client/dist/envelope-app')));
 
 const products = [
   { id: 1, name: 'Cup', image: 'assets/envelope.jpg', price: 1200, quantity: 1 },
@@ -18,10 +18,6 @@ const products = [
   { id: 5, name: 'Товар 5', image: 'assets/product4.jpg', price: 500, quantity: 1 },
   { id: 6, name: 'Товар 6', image: 'assets/product4.jpg', price: 185, quantity: 1 }
 ];
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist/envelope-app/index.html'));
-});
 
 app.get('/products', (req, res) => {
   res.json(products);
